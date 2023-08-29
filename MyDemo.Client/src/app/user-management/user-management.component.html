@@ -1,0 +1,36 @@
+<h1>User Management </h1>
+
+<div class="row">
+  <div class="col-sm-12">
+      <mat-form-field class="col-sm-3">
+        <input matInput [(ngModel)]="query.q" name="q" (keyup.enter)="search()" placeholder="Filter by user name">
+      </mat-form-field>
+      <button class="m-r-8 bg-green-700 text-light" mat-raised-button  (click)="search()">Search</button>
+      <button class="m-r-8 bg-red-700 text-light" mat-raised-button (click)="reset()">Reset</button>
+      <button class="m-r-8 bg-red-700 text-light" mat-raised-button (click)="logout()">Logout</button>
+  </div>
+</div>
+<p></p>
+
+<!-- use the ng-matero grid -->
+<mtx-grid [data]="list"
+          [columns]="columns"
+          [length]="total"
+          [loading]="isLoading"
+          [hideRowSelectionCheckbox]="false"
+          [multiSelectable]="true"
+          [rowSelectable]="true"
+          [columnResizable]="true"
+          [columnSortable] = "true"
+          [pageOnFront]="false"
+          [toolbarTitle]="'Show Columns'"
+          [showToolbar]="true"
+          [rowHover]="true"
+          [rowStriped]="true"
+          [pageIndex]="query.page"
+          [pageSize]="query.per_page"
+          [pageSizeOptions]="[5,10,20]"
+          (page)="getNextPage($event)"
+          (sortChange)="sortingChange($event)"
+          [sortOnFront] = "false">
+</mtx-grid>

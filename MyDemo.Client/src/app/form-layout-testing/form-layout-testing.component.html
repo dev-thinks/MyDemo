@@ -1,0 +1,8 @@
+<p>form-layout-testing works!</p>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+  <div mat-dialog-actions>
+  <button mat-raised-button color="primary">Submit</button>
+</div>
+</form>

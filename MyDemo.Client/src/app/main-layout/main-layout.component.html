@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My Demo Testing</title>
+
+</head>
+
+<body>
+<div>Header content</div>
+
+<div id="wrapper">
+  <router-outlet></router-outlet>
+</div>
+
+<div>Footer content</div>
+
+<swal #swalBox  [swalVisible]="isSwalVisible" (confirm)="handleConfirm($event, swalConfirmData, swalComponentContext)"></swal>
+
+</body>
+</html>
