@@ -41,4 +41,14 @@ export class UserManagementService {
     return this.http.get<ApiResult<DataListResult<User>>>(url, { params });
   }
 
+   /**
+   * Delete the user by user id
+   * @param id
+   * @returns
+   */
+   public delete(id: string): Observable<ApiResult<any>> {
+    var url = this.getUrl(`/user/${id}`);
+    return this.http.delete<ApiResult<any>>(url);
+  }
+
 }

@@ -16,8 +16,8 @@ export class SwalService implements OnDestroy {
   private swalCloseSource = new Subject<boolean>();
   swalCloseEmitted$ = this.swalCloseSource.asObservable();
 
-  private swalConfirmEvent = new Subject<SwalConfirmItem>();
-  swalConfirmEmitted$ = this.swalConfirmEvent.asObservable();
+  private swalConfirmSource = new Subject<SwalConfirmItem>();
+  swalConfirmEmitted$ = this.swalConfirmSource.asObservable();
 
 
   // Show swal with options
@@ -52,17 +52,20 @@ export class SwalService implements OnDestroy {
 
   // Set the confirm event
   setConfirm(confirmItem: SwalConfirmItem) {
-    this.swalConfirmEvent.next(confirmItem);
+    this.swalConfirmSource.next(confirmItem);
   }
 
   ngOnDestroy() {
     // complete and release the subject
     this.swalSource.complete();
     this.swalCloseSource.complete();
-    this.swalConfirmEvent.complete();
+    this.swalConfirmSource.complete();
   }
 }
 
+/**
+ * Handle confirm action and data
+ */
 export interface SwalConfirmItem {
   //the confirm handler function
   fnConfirm: any;

@@ -14,7 +14,9 @@ import { SweetAlertOptions } from 'sweetalert2';
 })
 export class LoginComponent {
 
-  constructor(private fb: FormBuilder, private router: Router, private auth: AuthService,
+  constructor(private fb: FormBuilder,
+    private router: Router,
+    private auth: AuthService,
     private swalService: SwalService) {
   }
 
@@ -48,8 +50,11 @@ export class LoginComponent {
         (errorRes: HttpErrorResponse) => {
           if(errorRes.status == 401){
             // this.errorMsg = 'User name or password is not valid!';
+            // set the swal icon to 'error'
             this.swalOptions.icon = 'error';
+            // set the message need to be show
             this.swalOptions.html =  'User name or password is not valid!';
+            // show the swal box
             this.swalService.show(this.swalOptions);
           }
             console.log('Error', errorRes);

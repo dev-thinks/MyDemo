@@ -21,8 +21,7 @@ const routes: Routes = [
       { path: 'form-layout', component: FormLayoutTestingComponent, canActivate: [AuthGuard] },
       { path: 'login', component: LoginComponent }
     ]
-  },
-
+  }
 ];
 
 @NgModule({
