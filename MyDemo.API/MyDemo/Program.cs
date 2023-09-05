@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using MyDemo.Core.Data.Entity;
+using MyDemo.Core.Middleware;
 using MyDemo.Core.Repositories;
 using MyDemo.Core.Repositories.Interfaces;
 using MyDemo.Core.Services;
@@ -92,6 +93,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowCrosite");
+
+app.UseRequestLogMiddleware();
+
+app.UseErrorHandlingMiddlewareMiddleware();
+
 
 app.UseHttpsRedirection();
 
