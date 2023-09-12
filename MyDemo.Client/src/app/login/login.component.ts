@@ -6,6 +6,7 @@ import { filter } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SwalService } from '../services/swal.service';
 import { SweetAlertOptions } from 'sweetalert2';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent {
   constructor(private fb: FormBuilder,
     private router: Router,
     private auth: AuthService,
-    private swalService: SwalService) {
+    private swalService: SwalService,
+    private loadingService: LoadingService) {
   }
 
   swalOptions: SweetAlertOptions = { icon : 'info' };
@@ -39,15 +41,24 @@ export class LoginComponent {
 
   login() {
     console.log('user name:' + this.username.value);
+
+    this.loadingService.start();
+
     this.auth
       .login(this.username.value, this.password.value)
       .pipe(filter(authenticated => authenticated))
       .subscribe(
         () => {
           console.log('after logined and redirect');
+
+          this.loadingService.stop();
+
           this.router.navigateByUrl('/user-management');
         },
         (errorRes: HttpErrorResponse) => {
+
+          this.loadingService.stop();
+
           if(errorRes.status == 401){
             // this.errorMsg = 'User name or password is not valid!';
             // set the swal icon to 'error'

@@ -26,6 +26,7 @@ import { LoginComponent } from './login/login.component';
 import { TokenInterceptor } from './core/token-interceptor';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { NgxLoadingModule } from 'ngx-loading';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     FormlyMaterialModule,
     FormlyPresetModule,
     SweetAlert2Module.forRoot(),
+    NgxLoadingModule.forRoot({}),
     FormlyModule.forRoot({
       presets: [
         {

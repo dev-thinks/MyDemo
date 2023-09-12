@@ -2,6 +2,12 @@ import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { SweetAlertOptions } from 'sweetalert2';
 import { SwalConfirmItem, SwalService } from '../services/swal.service';
+import { ngxLoadingAnimationTypes } from 'ngx-loading';
+import { LoadingService } from '../services/loading.service';
+
+
+const PrimaryRed = '#dd0031';
+const SecondaryBlue = '#1976d2';
 
 @Component({
   selector: 'app-main-layout',
@@ -17,7 +23,19 @@ export class MainLayoutComponent {
   @ViewChild(SwalComponent) swalBox!: SwalComponent;
   swalOptions: SweetAlertOptions = {};
 
-  constructor(private swalService: SwalService){
+  //set the loading flag
+  loading = false;
+  //set the loading config
+  //reference:  https://github.com/Zak-C/ngx-loading#config-options
+  config = {
+    animationType: ngxLoadingAnimationTypes.threeBounce,
+    primaryColour: PrimaryRed,
+    secondaryColour: SecondaryBlue,
+    tertiaryColour: PrimaryRed,
+    backdropBorderRadius: '3px',
+  };
+
+  constructor(private swalService: SwalService, private loadingService: LoadingService){
     //fire the swal from child component
     this.swalService.swalEmitted$.subscribe(options => {
       if(!this.swalBox){
@@ -35,6 +53,12 @@ export class MainLayoutComponent {
         this.swalBox.update(options);
         this.swalBox.fire();
       }
+    });
+
+    // Update loading status
+    this.loadingService.changeEmitted$.subscribe(isLoading => {
+      //console.log(isLoading);
+      this.loading = isLoading;
     });
 
     //set the confirm function and execute the login in child component

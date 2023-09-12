@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDemo.Utility", "MyDemo.Ut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDemo.Test", "MyDemo.Test\MyDemo.Test.csproj", "{138A1716-449D-4B7E-876F-671AC1519049}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDemo.DI", "MyDemo.DI\MyDemo.DI.csproj", "{B8FFF5E3-BA29-407F-A0CE-41A2754D3ABA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -15,6 +15,13 @@
 
 <div>Footer content</div>
 
+<ngx-loading #ngxLoading [show]="loading" [config]="config" [template]="loadingTemplate"></ngx-loading>
+  <ng-template #loadingTemplate>
+    <div class="loading-class">
+      <h4>Please wait ...</h4>
+    </div>
+</ng-template>
+
 <swal #swalBox  [swalVisible]="isSwalVisible" (confirm)="handleConfirm($event, swalConfirmData, swalComponentContext)"></swal>
 
 </body>

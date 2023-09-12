@@ -26,6 +26,7 @@
     "@ngx-formly/core": "^6.1.8",
     "@ngx-formly/material": "^6.1.8",
     "@sweetalert2/ngx-sweetalert2": "^12.1.0",
+    "ngx-loading": "^15.0.0",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.7.27",
     "tslib": "^2.3.0",
