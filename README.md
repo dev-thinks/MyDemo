@@ -18,3 +18,5 @@ https://www.coderblog.in/2023/08/use-the-sweetalert2-in-angular-common-layout/
 Creating the loading in Angular:
 https://www.coderblog.in/2023/09/creating-the-loading-in-angular/
 
+How to Support the JWT in Swagger UI
+https://www.coderblog.in/2023/09/how-to-support-the-jwt-in-swagger-ui/
