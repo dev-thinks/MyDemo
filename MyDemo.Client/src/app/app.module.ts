@@ -27,6 +27,7 @@ import { TokenInterceptor } from './core/token-interceptor';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgxLoadingModule } from 'ngx-loading';
+import { GeneratepdfComponent } from './generatepdf/generatepdf.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { NgxLoadingModule } from 'ngx-loading';
     FormlyFieldFileComponent,
     FileValueAccessor,
     LoginComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
+    GeneratepdfComponent
   ],
   imports: [
     BrowserModule,

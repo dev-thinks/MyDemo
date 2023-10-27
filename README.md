@@ -20,3 +20,6 @@ https://www.coderblog.in/2023/09/creating-the-loading-in-angular/
 
 How to Support the JWT in Swagger UI
 https://www.coderblog.in/2023/09/how-to-support-the-jwt-in-swagger-ui/
+
+Generate PDF with Free Spire.PDF in .Net Core and download in Angular 
+https://www.coderblog.in/2023/07/use-code-first-to-connect-database-in-net-core-api

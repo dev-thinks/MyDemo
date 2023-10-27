@@ -4,12 +4,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MyDemo.Core.Data.Entity;
 using MyDemo.Core.Middleware;
-using MyDemo.Core.Repositories;
-using MyDemo.Core.Repositories.Interfaces;
 using MyDemo.Core.Services;
 using Serilog;
-using Serilog.Events;
-using Serilog.Formatting.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -111,8 +107,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Mssql"));
     //options.UseSqlite(builder.Configuration.GetConnectionString("Sqlite"));
-}
-);
+});
+
 
 //allow cross-origin access for the api
 builder.Services.AddCors(o => o.AddPolicy("AllowCrosite", policy =>

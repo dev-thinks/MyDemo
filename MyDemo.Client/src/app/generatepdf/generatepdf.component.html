@@ -1,0 +1,28 @@
+<ngx-loading
+  #ngxLoading
+  [show]="loading"
+  [config]="config"
+  [template]="loadingTemplate"
+></ngx-loading>
+<ng-template #loadingTemplate>
+  <div class="loading-class">
+    <h4>Please wait ...</h4>
+  </div>
+</ng-template>
+
+<swal #swalBox [swalVisible]="isSwalVisible"></swal>
+
+<h1>Generate PDF</h1>
+
+<div class="row">
+  <div class="col-sm-12">
+    <button
+      class="m-r-8 bg-green-700 text-light"
+      mat-raised-button
+      (click)="generate()"
+    >
+      Generate PDF
+    </button>
+  </div>
+</div>
+<p></p>

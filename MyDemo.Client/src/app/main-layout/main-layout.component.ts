@@ -1,4 +1,4 @@
-import { Component, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { SweetAlertOptions } from 'sweetalert2';
 import { SwalConfirmItem, SwalService } from '../services/swal.service';
@@ -14,7 +14,9 @@ const SecondaryBlue = '#1976d2';
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss']
 })
-export class MainLayoutComponent {
+
+
+export class MainLayoutComponent implements OnInit, AfterViewInit{
 
   isSwalVisible = false;
   swalConfirmData : any;
@@ -72,6 +74,14 @@ export class MainLayoutComponent {
     this.swalService.swalCloseEmitted$.subscribe(item => {
       this.swalBox.close();
     });
+  }
+
+  ngOnInit() {
+    // this.loadingService.start();
+  }
+
+  ngAfterViewInit() {
+    // setTimeout(()=>{ this.loadingService.stop(); }, 4000);
   }
 
   handleConfirm(item: string, data: any, context: any): void {
