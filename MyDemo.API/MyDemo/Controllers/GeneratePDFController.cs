@@ -140,3 +140,48 @@ public class GeneratePDFController : ControllerBase
         return new FileStreamResult(stream, "application/pdf");
     }
 }
+
+
+
+
+//load a pdf file which only has one page
+//             PdfDocument doc = new PdfDocument(FilePath + "HelloWorld.pdf");
+//             doc.AllowCreateForm = true;
+//             int x = 20;
+//             int y = 50;
+//             PdfPageBase page = doc.Pages[0];
+//             for (int i = 0; i < 10; i++ )
+//             {
+//                 string name = String.Format("checkbox {0}", i);
+//                 //check if the space is enough to draw checkbox
+//                 if (y < page.ActualSize.Height - 40)
+//                 {
+//                     PdfCheckBoxField checkbox = new PdfCheckBoxField(page, name);
+//                     checkbox.Bounds = new RectangleF(new PointF(x, y), new SizeF(40, 40));
+//                     checkbox.BackColor = Color.Transparent;
+//                     checkbox.BorderWidth = 0.25f;
+//                     checkbox.Style = PdfCheckBoxStyle.Check;
+//                     checkbox.Checked = true;
+//                     doc.Form.Fields.Add(checkbox);
+//                     checkbox.TextAlignment = PdfTextAlignment.Center;
+//                 }               
+//                // if the space is not enough, then add new page
+//                 else
+//                 {
+//                     page = doc.Pages.Add();
+//                     x = 10;
+//                     y = 10;
+//                     PdfCheckBoxField checkbox = new PdfCheckBoxField(page, name);
+//                     checkbox.Bounds = new RectangleF(new PointF(x, y), new SizeF(40, 40));
+//                     checkbox.BackColor = Color.Transparent;
+//                     checkbox.BorderWidth = 0.25f;
+//                     checkbox.Style = PdfCheckBoxStyle.Check;
+//                     checkbox.Checked = true;
+//                     doc.Form.Fields.Add(checkbox);
+//                     checkbox.TextAlignment = PdfTextAlignment.Center;
+//                 }
+//                 //the y position of checkbox
+//                 y += 300;               
+//             }
+//             doc.SaveToFile("18789AddPageAuto.pdf");            
+
